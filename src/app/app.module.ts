@@ -8,6 +8,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { ResetPasswordPageComponent } from './components/reset-password-page/reset-password-page.component';
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
 import { PetsPageComponent } from './components/pets-page/pets-page.component';
+import { ProductsPageComponent } from './components/products-page/products-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PetsPageComponent } from './components/pets-page/pets-page.component';
     LoginPageComponent,
     ResetPasswordPageComponent,
     SignupPageComponent,
-    PetsPageComponent
+    PetsPageComponent,
+    ProductsPageComponent
   ],
   imports: [
     BrowserModule,
