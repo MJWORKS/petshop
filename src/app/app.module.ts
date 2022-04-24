@@ -11,7 +11,7 @@ import { PetsPageComponent } from './pages/account/pets-page/pets-page.component
 import { ProductsPageComponent } from './pages/store/products-page/products-page.component';
 import { CartPageComponent } from './pages/store/cart-page/cart-page.component';
 import { FramePageComponent } from './pages/master/frame.page';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,7 @@ import { FramePageComponent } from './pages/master/frame.page';
     CartPageComponent,
     FramePageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
