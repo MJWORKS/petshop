@@ -1,1 +1,15 @@
-<p>product-card works!</p>
+<div
+  class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
+>
+  <div class="uk-card-media-left uk-cover-container">
+    <img src="https://picsum.photos/200/300" />
+  </div>
+  <div class="uk-card-body">
+    <h3 class="uk-card-title">{{ product.price }}</h3>
+    <p>{{ product.title }}</p>
+    <button class="uk-button uk-button-default">
+      <span class="uk-icon uk-margin-small-right" uk-icon="icon: cart"></span>
+      Adicionar
+    </button>
+  </div>
+</div>

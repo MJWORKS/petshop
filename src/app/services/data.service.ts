@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class DataService {
-  private url: string = 'http://localhost:3000/';
+  private url: string = 'http://localhost:3000/v1';
 
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    return this.http.get<any[]>(`${this.url}products`);
+    return this.http.get<any[]>(`${this.url}/products`);
   }
 }
