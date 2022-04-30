@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { LoginPageComponent } from './pages/account/login-page/login-page.component';
 import { ResetPasswordPageComponent } from './pages/account/reset-password-page/reset-password-page.component';
 import { SignupPageComponent } from './pages/account/signup-page/signup-page.component';
@@ -12,6 +12,7 @@ import { ProductsPageComponent } from './pages/store/products-page/products-page
 import { CartPageComponent } from './pages/store/cart-page/cart-page.component';
 import { FramePageComponent } from './pages/master/frame.page';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductCardComponent } from './components/store/product-card/product-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsPageComponent,
     CartPageComponent,
     FramePageComponent,
+    ProductCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
