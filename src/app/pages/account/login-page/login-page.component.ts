@@ -13,6 +13,10 @@ export class LoginPageComponent implements OnInit {
   constructor(private service: DataService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    this.createForm();
+  }
+
+  createForm(): void {
     this.loginForm = this.fb.group({
       username: [
         '',
@@ -30,6 +34,15 @@ export class LoginPageComponent implements OnInit {
           Validators.required,
         ]),
       ],
+    });
+  }
+
+  submit(): void {
+    this.service.authenticate(this.loginForm.value).subscribe({
+      next: (data) => {
+        localStorage.setItem('petshop.token', data.token);
+      },
+      error: (err) => console.log(err),
     });
   }
 }

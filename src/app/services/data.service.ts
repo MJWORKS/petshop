@@ -18,4 +18,8 @@ export class DataService {
   authenticate(datas: any): Observable<any> {
     return this.http.post(`${this.url}/accounts/authenticate`, datas);
   }
+
+  refreshToken() {
+    return this.http.post(`${this.url}/accounts/refresh-token`, null);
+  }
 }
