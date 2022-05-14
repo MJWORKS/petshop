@@ -14,6 +14,7 @@ import { FramePageComponent } from './pages/master/frame.page';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './components/store/product-card/product-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CartPageComponent,
     FramePageComponent,
     ProductCardComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
