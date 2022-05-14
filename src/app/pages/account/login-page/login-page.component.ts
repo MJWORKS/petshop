@@ -13,6 +13,7 @@ export class LoginPageComponent implements OnInit {
   constructor(private service: DataService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    this.getToken();
     this.createForm();
   }
 
@@ -35,6 +36,19 @@ export class LoginPageComponent implements OnInit {
         ]),
       ],
     });
+  }
+
+  getToken(): void {
+    const token = localStorage.getItem('petshop.token');
+    if (token) {
+      this.service.refreshToken().subscribe({
+        next: (data: any) => {
+          localStorage.setItem('petshop.token', data.token);
+        },
+        error: (err) => localStorage.clear(),
+      });
+    } else {
+    }
   }
 
   submit(): void {

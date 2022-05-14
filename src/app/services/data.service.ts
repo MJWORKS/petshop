@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../models/product.model';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -11,6 +11,12 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
+  public composeHeaders(): HttpHeaders {
+    const token = localStorage.getItem('petshop.token');
+    const headers = new HttpHeaders().set('Authorization', `bearer ${token}`);
+    return headers;
+  }
+
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.url}/products`);
   }
@@ -19,7 +25,9 @@ export class DataService {
     return this.http.post(`${this.url}/accounts/authenticate`, datas);
   }
 
-  refreshToken() {
-    return this.http.post(`${this.url}/accounts/refresh-token`, null);
+  refreshToken(): Observable<any> {
+    return this.http.post(`${this.url}/accounts/refresh-token`, null, {
+      headers: this.composeHeaders(),
+    });
   }
 }
