@@ -30,4 +30,12 @@ export class DataService {
       headers: this.composeHeaders(),
     });
   }
+
+  create(data: any): Observable<any> {
+    return this.http.post(`${this.url}/accounts`, data);
+  }
+
+  resetPassword(data: any): Observable<any> {
+    return this.http.post(`${this.url}/accounts/reset-password`, data);
+  }
 }
