@@ -4,7 +4,7 @@ export class CustomValidator {
   constructor() {}
 
   static isCpf() {
-    return (control: AbstractControl): Validators => {
+    return (control: AbstractControl): Validators | null => {
       const cpf = control.value.replace(/[^0-9]*/g, '');
       if (cpf) {
         let numbers;
@@ -15,7 +15,6 @@ export class CustomValidator {
         let equalDigits;
         equalDigits = 1;
         if (cpf.length < 11) {
-          //@ts-ignore
           return null;
         }
 
@@ -50,19 +49,16 @@ export class CustomValidator {
           if (result !== Number(digits.charAt(1))) {
             return { cpfNotValid: true };
           }
-          //@ts-ignore
           return null;
         } else {
           return { cpfNotValid: true };
         }
       }
-      //@ts-ignore
       return null;
     };
   }
 
   static EmailValidator(control: FormControl) {
-    // tslint:disable-next-line:max-line-length
     const re =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(control.value)) {
